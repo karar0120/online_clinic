@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_clinic/core/helper/extensions.dart';
 import 'package:online_clinic/core/widget/form_field.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/color.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -63,7 +65,9 @@ class BuildFormFieldEmailAndPassword extends StatelessWidget {
               ),
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.forgetPasswordScreen);
+                },
                 child: Text(
                   "Forgot Password?",
                   style: TextStyles.font13GrayRegular.copyWith(
