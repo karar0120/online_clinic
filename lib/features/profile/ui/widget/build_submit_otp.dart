@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_clinic/core/helper/extensions.dart';
-import 'package:online_clinic/core/theming/styles.dart';
 
-import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/color.dart';
+import '../../../../core/theming/styles.dart';
 
-class SubmitButton extends StatelessWidget {
-  const SubmitButton({super.key});
+class BuildSubmitOtp extends StatelessWidget {
+  const BuildSubmitOtp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +22,7 @@ class SubmitButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {
-          context.pushNamed(Routes.otpScreen);
-        },
+        onPressed: () {},
         child: Text(
           "Submit",
           style: TextStyles.font16WhiteSemiBold,
