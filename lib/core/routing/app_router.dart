@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_clinic/core/routing/routes.dart';
 import 'package:online_clinic/features/forget_password/ui/forget_password.dart';
 import 'package:online_clinic/features/onBoarding/onboarding_screen.dart';
+import 'package:online_clinic/features/profile/ui/profile_screen.dart';
 
 import '../../features/login/ui/login_screen.dart';
 import '../../features/register/ui/register_screen.dart';
@@ -19,6 +20,8 @@ class AppRoute {
       case Routes.forgetPasswordScreen:
         return MaterialPageRoute(
             builder: (context) => const ForgetPasswordScreen());
+      case Routes.profileScreen:
+        return MaterialPageRoute(builder: (context) => const ProfileScreen());
       default:
         return unDefinedRoute();
     }
