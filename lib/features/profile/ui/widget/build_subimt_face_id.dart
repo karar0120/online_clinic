@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_clinic/core/helper/extensions.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/color.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -22,7 +24,9 @@ class BuildSubmitFaceId extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          context.pushReplacementNamed(Routes.navigationScreens);
+        },
         child: Text(
           "Submit",
           style: TextStyles.font16WhiteSemiBold,

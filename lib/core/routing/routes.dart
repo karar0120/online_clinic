@@ -7,4 +7,5 @@ class Routes {
   static const String profileScreen = '/profileScreen';
   static const String otpScreen = '/otpScreen';
   static const String faceIdScreen = '/faceIdScreen';
+  static const String navigationScreens = '/navigationScreens';
 }
