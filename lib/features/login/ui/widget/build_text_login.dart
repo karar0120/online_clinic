@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_clinic/core/theming/color.dart';
+import 'package:online_clinic/core/helper/spacing.dart';
 
 import '../../../../core/theming/styles.dart';
 
@@ -17,19 +17,12 @@ class BuildTextLogin extends StatelessWidget {
         ),
         Text(
           "Welcome Back",
-          style: TextStyles.font24Black700Weight.copyWith(
-            color: ColorsManager.mainBlue,
-          ),
+          style: TextStyles.font24BlueBold,
         ),
-        SizedBox(
-          height: 15.h,
-        ),
+        verticalSpace(8),
         Text(
           "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
-          style: TextStyles.font13GrayRegular.copyWith(
-            fontSize: 14.sp,
-            height: 1.5,
-          ),
+          style: TextStyles.font14GrayRegular,
         )
       ],
     );

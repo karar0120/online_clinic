@@ -17,7 +17,7 @@ class BuildTextProfile extends StatelessWidget {
         ),
         Text(
           "Fill Your Profile",
-          style: TextStyles.font24Black700Weight.copyWith(
+          style: TextStyles.font24BlackBold.copyWith(
             color: ColorsManager.mainBlue,
           ),
         ),

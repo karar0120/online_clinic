@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:online_clinic/core/widget/form_field.dart';
+import 'package:online_clinic/core/widget/app_text_form_field.dart';
 
 import '../../../../core/theming/color.dart';
 
@@ -25,45 +25,27 @@ class BuildFormFieldEmailAndPasswordAndPhoneAndBirthday
     return Form(
       child: Column(
         children: [
-          DefaultFormField(
-              labelText: "Full Name",
-              controller: fullNameTextEditingController,
-              type: TextInputType.name,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: fullNameFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Full Name",
+            controller: fullNameTextEditingController,
+            validator: (String? value) {},
+          ),
           SizedBox(
             height: 20.h,
           ),
-          DefaultFormField(
-              labelText: "Email",
-              controller: emailTextEditingController,
-              type: TextInputType.emailAddress,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: emailFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Email",
+            controller: emailTextEditingController,
+            validator: (String? value) {},
+          ),
           SizedBox(
             height: 20.h,
           ),
-          DefaultFormField(
-              labelText: "Birthday",
-              controller: birthdayTextEditingController,
-              type: TextInputType.datetime,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: birthdayFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Birthday",
+            controller: birthdayTextEditingController,
+            validator: (String? value) {},
+          ),
           SizedBox(
             height: 20.h,
           ),

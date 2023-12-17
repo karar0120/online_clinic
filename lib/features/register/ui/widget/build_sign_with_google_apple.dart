@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_clinic/core/theming/color.dart';
 
 class BuildSignWithGoogleAndApple extends StatelessWidget {
   const BuildSignWithGoogleAndApple({super.key});
@@ -13,21 +12,21 @@ class BuildSignWithGoogleAndApple extends StatelessWidget {
       children: [
         CircleAvatar(
             radius: 27.r,
-            backgroundColor: ColorsManager.backGroundColorIcon,
+            //backgroundColor: ColorsManager.backGroundColorIcon,
             child: SvgPicture.asset("assets/svgs/google.svg")),
         SizedBox(
           width: 20.w,
         ),
         CircleAvatar(
             radius: 27.r,
-            backgroundColor: ColorsManager.backGroundColorIcon,
+            // backgroundColor: ColorsManager.backGroundColorIcon,
             child: SvgPicture.asset("assets/svgs/facebook.svg")),
         SizedBox(
           width: 20.w,
         ),
         CircleAvatar(
             radius: 27.r,
-            backgroundColor: ColorsManager.backGroundColorIcon,
+            // backgroundColor: ColorsManager.backGroundColorIcon,
             child: SvgPicture.asset("assets/svgs/apple.svg")),
       ],
     );

@@ -17,7 +17,7 @@ class BuildOtpText extends StatelessWidget {
         ),
         Text(
           "OTP Verification",
-          style: TextStyles.font24Black700Weight.copyWith(
+          style: TextStyles.font24BlackBold.copyWith(
             color: ColorsManager.mainBlue,
           ),
         ),

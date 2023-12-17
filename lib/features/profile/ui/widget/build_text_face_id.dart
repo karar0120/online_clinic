@@ -17,7 +17,7 @@ class BuildFaceIdText extends StatelessWidget {
         ),
         Text(
           "Face ID",
-          style: TextStyles.font24Black700Weight.copyWith(
+          style: TextStyles.font24BlackBold.copyWith(
             color: ColorsManager.mainBlue,
           ),
         ),
