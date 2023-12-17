@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:online_clinic/core/widget/form_field.dart';
+import 'package:online_clinic/core/widget/app_text_form_field.dart';
 
 import '../../../../core/theming/color.dart';
 
@@ -21,31 +21,19 @@ class BuildFormFieldEmailAndPassword extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          DefaultFormField(
-              labelText: "Email",
-              controller: emailTextEditingController,
-              type: TextInputType.emailAddress,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: emailFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Email",
+            controller: emailTextEditingController,
+            validator: (String? value) {},
+          ),
           SizedBox(
             height: 20.h,
           ),
-          DefaultFormField(
-              labelText: "Password",
-              controller: passwordTextEditingController,
-              type: TextInputType.visiblePassword,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: passwordFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Password",
+            controller: passwordTextEditingController,
+            validator: (String? value) {},
+          ),
           SizedBox(
             height: 20.h,
           ),

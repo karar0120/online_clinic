@@ -6,9 +6,6 @@ import 'package:online_clinic/features/register/ui/widget/build_sign_in_text.dar
 import 'package:online_clinic/features/register/ui/widget/build_sign_with_google_apple.dart';
 import 'package:online_clinic/features/register/ui/widget/build_text_register.dart';
 
-import '../../../core/theming/color.dart';
-import '../../../core/theming/styles.dart';
-
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
@@ -32,28 +29,6 @@ class RegisterScreen extends StatelessWidget {
                 height: 30.h,
               ),
               const RegisterButton(),
-              SizedBox(
-                height: 30.h,
-              ),
-              Row(
-                children: [
-                  const Expanded(
-                      child: Divider(
-                    color: ColorsManager.dividerColor,
-                    thickness: 1,
-                  )),
-                  Text(
-                    "  Or sign up with  ",
-                    style:
-                        TextStyles.font13GrayRegular.copyWith(fontSize: 12.sp),
-                  ),
-                  const Expanded(
-                      child: Divider(
-                    color: ColorsManager.dividerColor,
-                    thickness: 1,
-                  )),
-                ],
-              ),
               SizedBox(
                 height: 30.h,
               ),

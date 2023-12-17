@@ -17,7 +17,7 @@ class BuildTextForgetPassword extends StatelessWidget {
         ),
         Text(
           "Forgot Password",
-          style: TextStyles.font24Black700Weight.copyWith(
+          style: TextStyles.font24BlackBold.copyWith(
             color: ColorsManager.mainBlue,
           ),
         ),

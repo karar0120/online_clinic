@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_clinic/core/helper/extensions.dart';
+import 'package:online_clinic/core/helper/spacing.dart';
 import 'package:online_clinic/core/routing/routes.dart';
 
 import '../../../../core/theming/styles.dart';
@@ -25,8 +26,7 @@ class BuildSignUpButton extends StatelessWidget {
                 ),
                 TextSpan(
                   text: " Terms & Conditions",
-                  style: TextStyles.font16WhiteSemiBold
-                      .copyWith(color: Colors.black, fontSize: 11.sp),
+                  style: TextStyles.font13DarkBlueMedium,
                 ),
                 TextSpan(
                   text: " and ",
@@ -36,13 +36,13 @@ class BuildSignUpButton extends StatelessWidget {
                     child: Center(
                   child: Text(
                     "PrivacyPolicy.",
-                    style: TextStyles.font16WhiteSemiBold
-                        .copyWith(color: Colors.black, fontSize: 11.sp),
+                    style: TextStyles.font13DarkBlueMedium,
                     textAlign: TextAlign.center,
                   ),
                 )),
               ]),
         ),
+        verticalSpace(25),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

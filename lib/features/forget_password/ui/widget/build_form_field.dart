@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_clinic/core/widget/form_field.dart';
+import 'package:online_clinic/core/widget/app_text_form_field.dart';
 
 class BuildFormFieldEmailOrPassword extends StatelessWidget {
   final TextEditingController emailTextEditingController =
@@ -18,17 +18,11 @@ class BuildFormFieldEmailOrPassword extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          DefaultFormField(
-              labelText: "Email or Phone Number",
-              controller: emailTextEditingController,
-              type: TextInputType.emailAddress,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: emailFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
+          AppTextFormField(
+            hintText: "Email or Phone Number",
+            controller: emailTextEditingController,
+            validator: (String? c) {},
+          ),
           SizedBox(
             height: 20.h,
           ),

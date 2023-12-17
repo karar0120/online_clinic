@@ -17,7 +17,7 @@ class BuildTextRegister extends StatelessWidget {
         ),
         Text(
           "Create Account",
-          style: TextStyles.font24Black700Weight.copyWith(
+          style: TextStyles.font24BlackBold.copyWith(
             color: ColorsManager.mainBlue,
           ),
         ),

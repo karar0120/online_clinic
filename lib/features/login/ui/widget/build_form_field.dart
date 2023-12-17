@@ -1,82 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_clinic/core/helper/extensions.dart';
-import 'package:online_clinic/core/widget/form_field.dart';
+import 'package:online_clinic/core/helper/spacing.dart';
+import 'package:online_clinic/core/widget/app_text_form_field.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/color.dart';
 import '../../../../core/theming/styles.dart';
 
-class BuildFormFieldEmailAndPassword extends StatelessWidget {
+class BuildFormFieldEmailAndPassword extends StatefulWidget {
+  const BuildFormFieldEmailAndPassword({super.key});
+
+  @override
+  State<BuildFormFieldEmailAndPassword> createState() =>
+      _BuildFormFieldEmailAndPasswordState();
+}
+
+class _BuildFormFieldEmailAndPasswordState
+    extends State<BuildFormFieldEmailAndPassword> {
   final TextEditingController emailTextEditingController =
       TextEditingController();
+
   final TextEditingController passwordTextEditingController =
       TextEditingController();
 
+  final formKey = GlobalKey<FormState>();
+
   final FocusNode emailFocusNode = FocusNode();
+
   final FocusNode passwordFocusNode = FocusNode();
 
-  BuildFormFieldEmailAndPassword({super.key});
+  bool isObscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: formKey,
       child: Column(
         children: [
-          DefaultFormField(
-              labelText: "Email",
-              controller: emailTextEditingController,
-              type: TextInputType.emailAddress,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: emailFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
-          SizedBox(
-            height: 20.h,
+          AppTextFormField(
+            hintText: "Email",
+            controller: emailTextEditingController,
+            validator: (String? value) {},
           ),
-          DefaultFormField(
-              labelText: "Password",
-              controller: passwordTextEditingController,
-              type: TextInputType.visiblePassword,
-              onSubmit: () {},
-              onChange: () {},
-              focusNode: passwordFocusNode,
-              onTap: () {},
-              validate: () {},
-              prefixPressed: () {},
-              suffixPressed: () {}),
-          SizedBox(
-            height: 20.h,
+          verticalSpace(18),
+          AppTextFormField(
+            hintText: "Password",
+            controller: passwordTextEditingController,
+            isObscureText: isObscureText,
+            validator: (String? value) {},
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isObscureText = !isObscureText;
+                });
+              },
+              child: isObscureText
+                  ? const Icon(Icons.visibility_off)
+                  : const Icon(Icons.visibility),
+            ),
           ),
-          Row(
-            children: [
-              const Icon(
-                Icons.check_box_outline_blank,
-                color: ColorsManager.gray,
-              ),
-              SizedBox(
-                width: 5.w,
-              ),
-              Text(
-                "Remember me",
-                style: TextStyles.font13GrayRegular.copyWith(fontSize: 12.sp),
-              ),
-              const Spacer(),
-              TextButton(
-                onPressed: () {
-                  context.pushNamed(Routes.forgetPasswordScreen);
-                },
-                child: Text(
-                  "Forgot Password?",
-                  style: TextStyles.font13GrayRegular.copyWith(
-                    color: ColorsManager.mainBlue,
-                    fontSize: 12.sp,
-                  ),
+          verticalSpace(18),
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            child: TextButton(
+              onPressed: () {
+                context.pushNamed(Routes.forgetPasswordScreen);
+              },
+              child: Text(
+                "Forgot Password?",
+                style: TextStyles.font13BlueRegular.copyWith(
+                  color: ColorsManager.mainBlue,
+                  fontSize: 12.sp,
                 ),
-              )
-            ],
+              ),
+            ),
           )
         ],
       ),

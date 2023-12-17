@@ -15,7 +15,7 @@ class BuildOtp extends StatelessWidget {
       obscureText: false,
       autoFocus: true,
       keyboardType: TextInputType.number,
-      cursorColor: ColorsManager.dividerColor,
+      // cursorColor: ColorsManager.dividerColor,
       animationType: AnimationType.scale,
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,
@@ -26,7 +26,7 @@ class BuildOtp extends StatelessWidget {
         activeColor: ColorsManager.mainBlue,
         inactiveColor: ColorsManager.mainBlue,
         inactiveFillColor: Colors.white,
-        activeFillColor: ColorsManager.labelTextColor,
+        //activeFillColor: ColorsManager.labelTextColor,
         selectedColor: ColorsManager.mainBlue,
         selectedFillColor: Colors.white,
       ),
