@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_clinic/core/helper/app_regex.dart';
 import 'package:online_clinic/core/helper/extensions.dart';
 import 'package:online_clinic/core/helper/spacing.dart';
 import 'package:online_clinic/core/widget/app_text_form_field.dart';
+import 'package:online_clinic/features/login/logic/cubit/login_cubit.dart';
+import 'package:online_clinic/features/login/ui/widget/password_validations.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/color.dart';
@@ -18,37 +22,51 @@ class BuildFormFieldEmailAndPassword extends StatefulWidget {
 
 class _BuildFormFieldEmailAndPasswordState
     extends State<BuildFormFieldEmailAndPassword> {
-  final TextEditingController emailTextEditingController =
-      TextEditingController();
-
-  final TextEditingController passwordTextEditingController =
-      TextEditingController();
-
-  final formKey = GlobalKey<FormState>();
-
-  final FocusNode emailFocusNode = FocusNode();
-
-  final FocusNode passwordFocusNode = FocusNode();
-
   bool isObscureText = true;
+
+  bool hasLowerCase = false;
+  bool hasUpperCase = false;
+  bool hasSpecialCharacters = false;
+  bool hasNumber = false;
+  bool hasMinLength = false;
+
+  late TextEditingController passwordController;
+  @override
+  void initState() {
+    passwordController =
+        context.read<LoginCubit>().passwordTextEditingController;
+    setupPasswordControllerListener();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
             hintText: "Email",
-            controller: emailTextEditingController,
-            validator: (String? value) {},
+            controller: context.read<LoginCubit>().emailTextEditingController,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return "Please Enter Your Email";
+              }
+            },
           ),
           verticalSpace(18),
           AppTextFormField(
             hintText: "Password",
-            controller: passwordTextEditingController,
+            controller:
+                context.read<LoginCubit>().passwordTextEditingController,
             isObscureText: isObscureText,
-            validator: (String? value) {},
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Please Enter Your Password";
+              }
+            },
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -60,6 +78,13 @@ class _BuildFormFieldEmailAndPasswordState
                   : const Icon(Icons.visibility),
             ),
           ),
+          verticalSpace(24),
+          PasswordValidations(
+              hasLowerCase: hasLowerCase,
+              hasUpperCase: hasUpperCase,
+              hasSpecialCharacters: hasSpecialCharacters,
+              hasNumber: hasNumber,
+              hasMinLength: hasMinLength),
           verticalSpace(18),
           Align(
             alignment: AlignmentDirectional.centerEnd,
@@ -79,5 +104,24 @@ class _BuildFormFieldEmailAndPasswordState
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void setupPasswordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+        hasSpecialCharacters =
+            AppRegex.hasSpecialCharacter(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
+    });
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_clinic/core/di/dependency_injection.dart';
 import 'package:online_clinic/core/routing/routes.dart';
 import 'package:online_clinic/features/forget_password/ui/forget_password.dart';
 import 'package:online_clinic/features/home/ui/navigation_screen.dart';
+import 'package:online_clinic/features/login/logic/cubit/login_cubit.dart';
 import 'package:online_clinic/features/onBoarding/onboarding_screen.dart';
 import 'package:online_clinic/features/profile/ui/face_id_screen.dart';
 import 'package:online_clinic/features/profile/ui/otp_screen.dart';
@@ -14,7 +17,11 @@ class AppRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => const LoginScreen());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider<LoginCubit>(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: const LoginScreen(),
+                ));
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
             builder: (context) => const OnBoardingScreen());
@@ -29,9 +36,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (context) => const OtpScreen());
       case Routes.faceIdScreen:
         return MaterialPageRoute(builder: (context) => const FaceIdScreen());
-      case Routes.navigationScreens:
-        return MaterialPageRoute(
-            builder: (context) => const NavigationScreen());
+      case Routes.homeScreens:
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
 
       default:
         return unDefinedRoute();
