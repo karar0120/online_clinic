@@ -4,6 +4,7 @@ import 'package:online_clinic/core/helper/spacing.dart';
 import 'package:online_clinic/features/login/ui/widget/build_form_field.dart';
 import 'package:online_clinic/features/login/ui/widget/build_login_button.dart';
 import 'package:online_clinic/features/login/ui/widget/build_text_login.dart';
+import 'package:online_clinic/features/login/ui/widget/login_bloc_listener.dart';
 
 import 'widget/build_sign_up_text.dart';
 
@@ -28,6 +29,7 @@ class LoginScreen extends StatelessWidget {
               const LoginButton(),
               verticalSpace(16),
               const BuildSignUpButton(),
+              const LoginBlocListener(),
             ],
           ),
         ),

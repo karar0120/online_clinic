@@ -25,7 +25,7 @@ class BuildSubmitFaceId extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          context.pushReplacementNamed(Routes.navigationScreens);
+          context.pushReplacementNamed(Routes.homeScreens);
         },
         child: Text(
           "Submit",
