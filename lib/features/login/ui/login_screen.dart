@@ -5,6 +5,7 @@ import 'package:online_clinic/features/login/ui/widget/build_form_field.dart';
 import 'package:online_clinic/features/login/ui/widget/build_login_button.dart';
 import 'package:online_clinic/features/login/ui/widget/build_text_login.dart';
 import 'package:online_clinic/features/login/ui/widget/login_bloc_listener.dart';
+import 'package:online_clinic/features/login/ui/widget/terms_and_conditions.dart';
 
 import 'widget/build_sign_up_text.dart';
 
@@ -28,7 +29,9 @@ class LoginScreen extends StatelessWidget {
               verticalSpace(24),
               const LoginButton(),
               verticalSpace(16),
-              const BuildSignUpButton(),
+              const TermsAndConditionsText(),
+              verticalSpace(10),
+              const DontHaveAccountText(),
               const LoginBlocListener(),
             ],
           ),
