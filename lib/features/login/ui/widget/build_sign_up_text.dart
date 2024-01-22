@@ -1,66 +1,33 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_clinic/core/helper/extensions.dart';
-import 'package:online_clinic/core/helper/spacing.dart';
 import 'package:online_clinic/core/routing/routes.dart';
 
 import '../../../../core/theming/styles.dart';
 
-class BuildSignUpButton extends StatelessWidget {
-  const BuildSignUpButton({super.key});
+class DontHaveAccountText extends StatelessWidget {
+  const DontHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text.rich(
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: [
           TextSpan(
-              style: const TextStyle(
-                height: 1.5,
-              ),
-              children: [
-                TextSpan(
-                  text: "By logging, you agree to our",
-                  style: TextStyles.font13GrayRegular.copyWith(fontSize: 11.sp),
-                ),
-                TextSpan(
-                  text: " Terms & Conditions",
-                  style: TextStyles.font13DarkBlueMedium,
-                ),
-                TextSpan(
-                  text: " and ",
-                  style: TextStyles.font13GrayRegular.copyWith(fontSize: 11.sp),
-                ),
-                WidgetSpan(
-                    child: Center(
-                  child: Text(
-                    "PrivacyPolicy.",
-                    style: TextStyles.font13DarkBlueMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                )),
-              ]),
-        ),
-        verticalSpace(25),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Don't have account? ",
-              textAlign: TextAlign.center,
-              style: TextStyles.font13GrayRegular
-                  .copyWith(color: Colors.black, fontSize: 11.sp),
-            ),
-            TextButton(
-              onPressed: () {
+            text: 'Don\'t have an account?',
+            style: TextStyles.font13DarkBlueRegular,
+          ),
+          TextSpan(
+            text: ' Sign Up',
+            style: TextStyles.font13BlueSemiBold,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
                 context.pushNamed(Routes.registerScreen);
               },
-              child: const Text("Sign Up "),
-            )
-          ],
-        )
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
